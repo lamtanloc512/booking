@@ -1,0 +1,40 @@
+package org.hrsgroup;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
+@MappedSuperclass
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+public abstract class BaseEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue
+    protected Long id;
+
+    @Column(name = "updated_at", updatable = false)
+    protected LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    protected LocalDateTime updatedAt;
+
+    @PrePersist
+    void onCreate() {
+        createdAt = LocalDateTime.now(ZoneId.of("UTC"));
+        updatedAt = null;
+    }
+
+    @PreUpdate
+    void onUpdate() {
+        createdAt = LocalDateTime.now(ZoneId.of("UTC"));
+        updatedAt = null;
+    }
+}
