@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "hotels")
+@Table(name = "booking_facts")
 public class BookingFact extends BaseEntity {
     private static final long serialVersionUID = 1L;
     private Long hotelId;

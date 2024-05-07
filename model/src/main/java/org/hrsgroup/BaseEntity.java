@@ -20,10 +20,10 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue
     protected Long id;
 
-    @Column(name = "updated_at", updatable = false)
+    @Column(name = "created_at", updatable = false)
     protected LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
+    @Column(name = "updated_at", insertable = false)
     protected LocalDateTime updatedAt;
 
     @PrePersist

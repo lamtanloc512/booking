@@ -42,7 +42,7 @@
         <dependency>
             <groupId>org.hrsgroup</groupId>
             <artifactId>model</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <!--        For Fake Data -->

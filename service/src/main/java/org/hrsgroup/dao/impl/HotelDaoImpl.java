@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @ApplicationScoped
 public class HotelDaoImpl implements Dao<Hotel, Long> {
-    @PersistenceContext(name = "")
+    @PersistenceContext(name = "jpa-unit")
     private EntityManager entityManager;
 
     @Override

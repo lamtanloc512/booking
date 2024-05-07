@@ -31,4 +31,6 @@
                                password="booking_pwd"/>
     </dataSource>
 
+    <logging consoleFormat="DEV" consoleLogLevel="INFO" />
+
 </server>
