@@ -1,0 +1,34 @@
+<server description="Sample Liberty server">
+
+    <featureManager>
+        <!--        <feature>restfulWS-3.1</feature>-->
+        <!--        <feature>jsonb-3.0</feature>-->
+        <!--        <feature>jsonp-2.1</feature>-->
+        <!--        <feature>cdi-4.0</feature>-->
+        <feature>microprofile-6.1</feature>
+        <feature>persistence-3.1</feature>
+    </featureManager>
+
+    <variable name="http.port" defaultValue="8080"/>
+    <variable name="https.port" defaultValue="8443"/>
+
+    <httpEndpoint httpPort="${http.port}" httpsPort="${https.port}"
+                  id="defaultHttpEndpoint" host="*"/>
+
+    <applicationManager autoExpand="true"/>
+    <application location="service.war" type="war" context-root="/api"/>
+
+    <library id="PostgresLib">
+        <fileset dir="${shared.resource.dir}/" includes="*.jar" />
+    </library>
+
+    <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
+        <jdbcDriver libraryRef="PostgresLib"/>
+        <properties.postgresql databaseName="booking_db"
+                               serverName="localhost"
+                               portNumber="5432"
+                               user="booking_user"
+                               password="booking_pwd"/>
+    </dataSource>
+
+</server>
