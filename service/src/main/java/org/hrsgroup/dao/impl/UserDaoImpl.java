@@ -1,11 +1,9 @@
 package org.hrsgroup.dao.impl;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.hrsgroup.Booking;
 import org.hrsgroup.User;
 import org.hrsgroup.dao.Dao;
 
@@ -19,7 +17,7 @@ public class UserDaoImpl implements Dao<User, Long> {
     EntityManager em;
 
     @Override
-    public Iterable<User> findListByName() {
+    public Iterable<User> findListByName(String name) {
         return null;
     }
 

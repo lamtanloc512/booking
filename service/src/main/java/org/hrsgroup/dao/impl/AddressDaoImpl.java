@@ -23,7 +23,7 @@ public class AddressDaoImpl implements Dao<Address, Long> {
     }
 
     @Override
-    public Iterable<Address> findListByName() {
+    public Iterable<Address> findListByName(String name) {
         return null;
     }
 

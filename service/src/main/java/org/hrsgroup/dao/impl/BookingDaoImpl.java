@@ -35,7 +35,7 @@ public class BookingDaoImpl implements Dao<Booking, Long> {
     }
 
     @Override
-    public Iterable<Booking> findListByName() {
+    public Iterable<Booking> findListByName(String name) {
         return null;
     }
 
@@ -125,7 +125,7 @@ public class BookingDaoImpl implements Dao<Booking, Long> {
     }
 
     @Override
-    public Booking update(Booking entity) {
+    public Booking update(Booking entity) throws SQLException {
         return em.merge(entity);
     }
 
