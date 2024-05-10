@@ -22,7 +22,7 @@
         <fileset dir="${shared.resource.dir}/" includes="*.jar" />
     </library>
 
-    <dataSource id="DefaultDataSource" jndiName="jdbc/postgresql">
+    <dataSource id="postgresDataSource" jndiName="jdbc/postgresql">
         <jdbcDriver libraryRef="PostgresLib"/>
         <properties.postgresql databaseName="booking_db"
                                serverName="localhost"
@@ -31,6 +31,6 @@
                                password="booking_pwd"/>
     </dataSource>
 
-    <logging consoleFormat="DEV" consoleLogLevel="INFO" />
+    <logging consoleFormat="DEV"/>
 
 </server>

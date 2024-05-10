@@ -43,11 +43,6 @@ public class AddressDaoImpl implements Dao<Address, Long> {
     }
 
     @Override
-    public void delete(Address entity) {
-
-    }
-
-    @Override
     public void deleteById(Long aLong) {
 
     }

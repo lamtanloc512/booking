@@ -6,40 +6,42 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.hrsgroup.Booking;
-import org.hrsgroup.Hotel;
+import org.hrsgroup.User;
 import org.hrsgroup.dao.Dao;
 
+import java.sql.SQLException;
 import java.util.Optional;
 
 @RequestScoped
-public class HotelDaoImpl implements Dao<Hotel, Long> {
+public class UserDaoImpl implements Dao<User, Long> {
+
     @PersistenceContext
-    private EntityManager em;
+    EntityManager em;
 
     @Override
-    public Iterable<Hotel> findListByName() {
+    public Iterable<User> findListByName() {
         return null;
     }
 
     @Override
-    public Optional<Hotel> findById(Long id) {
-        TypedQuery<Hotel> query = em.createQuery("SELECT h FROM Hotel h WHERE h.id = :id", Hotel.class);
+    public Optional<User> findById(Long id) {
+        TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.id = :id", User.class);
         query.setParameter("id", id);
         return Optional.ofNullable(query.getSingleResult());
     }
 
     @Override
-    public Hotel save(Hotel entity) {
+    public User save(User entity) throws SQLException {
         return null;
     }
 
     @Override
-    public Hotel update(Hotel entity) {
+    public User update(User entity) throws SQLException {
         return null;
     }
 
     @Override
-    public void deleteById(Long aLong) {
+    public void deleteById(Long aLong) throws SQLException {
 
     }
 }

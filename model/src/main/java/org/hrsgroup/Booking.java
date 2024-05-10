@@ -2,12 +2,11 @@ package org.hrsgroup;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.Set;
 
 
@@ -19,7 +18,12 @@ import java.util.Set;
 @Table(name = "bookings")
 public class Booking extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
+    @NotNull
     private Hotel hotel;
+    @NotNull
     private User user;
+    @NotNull
     private Set<Room> rooms;
+    @NotNull
+    private Double totalPrice;
 }

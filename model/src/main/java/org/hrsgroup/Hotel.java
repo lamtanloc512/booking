@@ -1,6 +1,7 @@
 package org.hrsgroup;
 
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.Set;
 
 @Data
@@ -21,6 +23,8 @@ public class Hotel extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
     private Address address;
-    private Integer phone;
+    private String phone;
+    @JsonbTransient
     private Set<Room> rooms;
+
 }

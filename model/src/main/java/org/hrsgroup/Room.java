@@ -17,8 +17,9 @@ import java.io.Serializable;
 @Table(name = "rooms")
 public class Room extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Integer number;
+    private String number;
     private Integer capacity;
     private Float rating;
     private Float amenities;
+    private Double price;
 }

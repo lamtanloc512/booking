@@ -1,5 +1,6 @@
 package org.hrsgroup;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,9 +21,11 @@ public abstract class BaseEntity implements Serializable {
     @GeneratedValue
     protected Long id;
 
+    @JsonbTransient
     @Column(name = "created_at", updatable = false)
     protected LocalDateTime createdAt;
 
+    @JsonbTransient
     @Column(name = "updated_at", insertable = false)
     protected LocalDateTime updatedAt;
 
