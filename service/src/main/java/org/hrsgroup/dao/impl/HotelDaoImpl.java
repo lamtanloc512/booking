@@ -4,8 +4,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.hrsgroup.Hotel;
 import org.hrsgroup.dao.Dao;
+import org.hrsgroup.model.Hotel;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -19,10 +19,10 @@ public class HotelDaoImpl implements Dao<Hotel, Long> {
     @Override
     public Set<Hotel> findListByName(String name) {
         TypedQuery<Hotel> query;
-        if(name != null && !name.isEmpty()) {
-        query = em.createQuery(
-                "SELECT h FROM Hotel h WHERE lower(h.name) LIKE lower(:name)", Hotel.class);
-        query.setParameter("name", name + "%");
+        if (name != null && !name.isEmpty()) {
+            query = em.createQuery(
+                    "SELECT h FROM Hotel h WHERE lower(h.name) LIKE lower(:name)", Hotel.class);
+            query.setParameter("name", name + "%");
         } else {
             query = em.createQuery(
                     "SELECT h FROM Hotel h", Hotel.class);

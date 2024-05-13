@@ -22,6 +22,10 @@
         <fileset dir="${shared.resource.dir}/" includes="*.jar" />
     </library>
 
+    <mpJwt>
+        <claim name="bookingClaim" value="bookingSecret"/>
+    </mpJwt>
+
     <dataSource id="postgresDataSource" jndiName="jdbc/postgresql">
         <jdbcDriver libraryRef="PostgresLib"/>
         <properties.postgresql databaseName="booking_db"

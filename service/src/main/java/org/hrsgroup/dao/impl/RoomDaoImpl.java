@@ -4,13 +4,13 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.hrsgroup.Room;
+import org.hrsgroup.model.Room;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @RequestScoped
-public class RoomDaopImpl {
+public class RoomDaoImpl {
     @PersistenceContext
     private EntityManager em;
 

@@ -1,5 +1,4 @@
-package org.hrsgroup;
-
+package org.hrsgroup.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -15,9 +14,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "addresses")
-public class Address extends BaseEntity implements Serializable {
+@Table(name = "users")
+public class User extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String street;
-    private String number;
+    private String name;
+    private String email;
+    private String phone;
 }

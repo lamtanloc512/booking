@@ -1,8 +1,6 @@
 package org.hrsgroup;
 
 
-import com.github.javafaker.Faker;
-import jakarta.annotation.Resource;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.Initialized;
 import jakarta.enterprise.event.Observes;
@@ -12,12 +10,10 @@ import jakarta.transaction.Transactional;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.Set;
+
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
 
 @ApplicationPath("/v1")
 @ApplicationScoped
@@ -65,6 +61,6 @@ public class ServiceApp extends Application {
 //            );
 //            em.persist(hotel);
 //        });
-
+        log.info("Service Ready!");
     }
 }

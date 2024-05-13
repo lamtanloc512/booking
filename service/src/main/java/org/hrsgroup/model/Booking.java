@@ -1,12 +1,14 @@
-package org.hrsgroup;
+package org.hrsgroup.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.Set;
 
 

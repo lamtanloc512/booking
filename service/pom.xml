@@ -39,11 +39,6 @@
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.hrsgroup</groupId>
-            <artifactId>model</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -6,8 +6,11 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
-import org.hrsgroup.*;
 import org.hrsgroup.dao.Dao;
+import org.hrsgroup.model.Booking;
+import org.hrsgroup.model.Hotel;
+import org.hrsgroup.model.Room;
+import org.hrsgroup.model.User;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -23,7 +26,7 @@ public class BookingDaoImpl implements Dao<Booking, Long> {
     @Inject
     HotelDaoImpl hotelDao;
     @Inject
-    RoomDaopImpl roomDao;
+    RoomDaoImpl roomDao;
 
     @PersistenceContext
     EntityManager em;

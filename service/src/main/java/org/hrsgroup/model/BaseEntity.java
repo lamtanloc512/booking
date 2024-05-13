@@ -1,4 +1,4 @@
-package org.hrsgroup;
+package org.hrsgroup.model;
 
 import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;

@@ -4,8 +4,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.hrsgroup.Address;
 import org.hrsgroup.dao.Dao;
+import org.hrsgroup.model.Address;
 
 import java.util.List;
 import java.util.Optional;

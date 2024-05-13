@@ -4,8 +4,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import org.hrsgroup.User;
 import org.hrsgroup.dao.Dao;
+import org.hrsgroup.model.User;
 
 import java.sql.SQLException;
 import java.util.Optional;
