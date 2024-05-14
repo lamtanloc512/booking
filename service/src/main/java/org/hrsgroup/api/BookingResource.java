@@ -11,6 +11,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBodySchema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
+import org.eclipse.microprofile.openapi.annotations.security.SecurityRequirement;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.hrsgroup.dao.impl.BookingDaoImpl;
 import org.hrsgroup.dto.ResponseDto;
@@ -23,6 +24,7 @@ import java.util.*;
 @Tag(name = "Booking API")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@SecurityRequirement(name = "bearerAuth")
 public class BookingResource {
     @Inject
     BookingDaoImpl bookingDao;
@@ -66,6 +68,7 @@ public class BookingResource {
     @APIResponse(responseCode = "200", description = "The created booking", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseDto.class)))
     @APIResponse(responseCode = "400", description = "Bad request", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseDto.class)))
     @RequestBodySchema(Booking.class)
+    @RolesAllowed({"user", "admin"})
     public Response createBooking(Booking booking) {
         ResponseDto.ResponseDtoBuilder responseDtoBuilder = ResponseDto.builder();
         try {
@@ -88,6 +91,7 @@ public class BookingResource {
     @APIResponse(responseCode = "200", description = "The updated booking", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseDto.class)))
     @APIResponse(responseCode = "409", description = "Update fail or conflict", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseDto.class)))
     @RequestBodySchema(Booking.class)
+    @RolesAllowed({"user", "admin"})
     public Response updateBooking(@PathParam("id") Long id, Booking incomingBooking) {
         ResponseDto.ResponseDtoBuilder responseDtoBuilder = ResponseDto.builder();
         try {
@@ -110,6 +114,7 @@ public class BookingResource {
     @Operation(summary = "Delete a booking", description = "Delete a booking by its ID.")
     @APIResponse(responseCode = "200", description = "Booking deleted successfully", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseDto.class)))
     @APIResponse(responseCode = "409", description = "Bad request or Delete conflict", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ResponseDto.class)))
+    @RolesAllowed({"user", "admin"})
     public Response deleteBooking(@PathParam("id") Long id) {
         ResponseDto.ResponseDtoBuilder responseDtoBuilder = ResponseDto.builder();
         try {

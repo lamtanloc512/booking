@@ -9,6 +9,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
+import org.eclipse.microprofile.auth.LoginConfig;
 
 import java.sql.SQLException;
 
@@ -17,6 +18,7 @@ import java.util.logging.Logger;
 
 @ApplicationPath("/v1")
 @ApplicationScoped
+@LoginConfig(authMethod = "MP-JWT")
 public class ServiceApp extends Application {
     private static final Logger log = Logger.getLogger(ServiceApp.class.getName());
 

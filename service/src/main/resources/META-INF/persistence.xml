@@ -6,7 +6,7 @@
                         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
     <persistence-unit name="jpa-unit" transaction-type="JTA">
         <jta-data-source>jdbc/postgresql</jta-data-source>
-        <jar-file>/WEB-INF/lib/model-1.0-SNAPSHOT.jar</jar-file>
+<!--        <jar-file>/WEB-INF/lib/model-1.0-SNAPSHOT.jar</jar-file>-->
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action"

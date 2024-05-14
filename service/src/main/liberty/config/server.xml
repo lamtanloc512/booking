@@ -1,11 +1,21 @@
 <server description="Sample Liberty server">
 
     <featureManager>
-        <!--        <feature>restfulWS-3.1</feature>-->
-        <!--        <feature>jsonb-3.0</feature>-->
-        <!--        <feature>jsonp-2.1</feature>-->
-        <!--        <feature>cdi-4.0</feature>-->
-        <feature>microprofile-6.1</feature>
+        <feature>restfulWS-3.1</feature>
+        <feature>jsonb-3.0</feature>
+        <feature>jsonp-2.1</feature>
+        <feature>faces-4.0</feature>
+        <feature>cdi-4.0</feature>
+        <feature>mpOpenAPI-3.1</feature>
+
+<!--        <feature>appSecurity-5.0</feature>-->
+        <feature>servlet-6.0</feature>
+        <feature>mpJwt-2.1</feature>
+        <feature>mpConfig-3.1</feature>
+        <feature>mpRestClient-3.0</feature>
+
+<!--        <feature>mpJwt-2.1</feature>-->
+<!--        <feature>microprofile-6.1</feature>-->
         <feature>persistence-3.1</feature>
     </featureManager>
 
@@ -19,12 +29,10 @@
     <application location="service.war" type="war" context-root="/api"/>
 
     <library id="PostgresLib">
-        <fileset dir="${shared.resource.dir}/" includes="*.jar" />
+        <fileset dir="${shared.resource.dir}/" includes="*.jar"/>
     </library>
 
-    <mpJwt>
-        <claim name="bookingClaim" value="bookingSecret"/>
-    </mpJwt>
+    <keyStore id="defaultKeyStore" password="secret"/>
 
     <dataSource id="postgresDataSource" jndiName="jdbc/postgresql">
         <jdbcDriver libraryRef="PostgresLib"/>
