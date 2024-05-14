@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "booking_facts")
 public class BookingFact extends BaseEntity {
     private static final long serialVersionUID = 1L;
+    private Long bookingId;
     private Long hotelId;
     private Long userId;
     private Long addressId;

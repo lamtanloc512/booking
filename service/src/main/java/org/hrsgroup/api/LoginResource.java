@@ -43,7 +43,6 @@ import java.util.Set;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class LoginResource {
-    private static final String keystorePath = System.getProperty("user.dir") + "/resources/security/key.p12";
 
     @POST
     @PermitAll

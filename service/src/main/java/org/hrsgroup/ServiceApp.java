@@ -29,6 +29,8 @@ public class ServiceApp extends Application {
     @Transactional
     public void init(@Observes @Initialized(ApplicationScoped.class) Object context) throws SQLException {
 
+
+
 //        Faker faker = new Faker();
 //        IntStream.rangeClosed(0, 10).forEach(x -> {
 //            Address address = new Address(faker.address().streetName(),

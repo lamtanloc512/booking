@@ -7,10 +7,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 import org.hrsgroup.dao.Dao;
-import org.hrsgroup.model.Booking;
-import org.hrsgroup.model.Hotel;
-import org.hrsgroup.model.Room;
-import org.hrsgroup.model.User;
+import org.hrsgroup.model.*;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -86,6 +83,18 @@ public class BookingDaoImpl implements Dao<Booking, Long> {
         log.info("Calculated totalPrice: " + totalPrice + " , Booking totalPrice: " + entity.getTotalPrice());
 
         em.persist(newBooking);
+
+        /// for testing only, this should split to another transaction, to avoiding affect booking transaction
+        for (Room room : newBooking.getRooms()) {
+            BookingFact newBookingFact = new BookingFact(newBooking.getId(),
+                    newBooking.getHotel().getId(),
+                    newBooking.getUser().getId(),
+                    newBooking.getHotel().getAddress().getId(),
+                    room.getId());
+
+            em.persist(newBookingFact);
+        }
+
         return newBooking;
     }
 
@@ -129,6 +138,16 @@ public class BookingDaoImpl implements Dao<Booking, Long> {
 
     @Override
     public Booking update(Booking entity) throws SQLException {
+
+        for (Room room : entity.getRooms()) {
+            BookingFact updatedBookingFact = new BookingFact(entity.getId(),
+                    entity.getHotel().getId(),
+                    entity.getUser().getId(),
+                    entity.getHotel().getAddress().getId(),
+                    room.getId());
+            em.persist(updatedBookingFact);
+        }
+
         return em.merge(entity);
     }
 
