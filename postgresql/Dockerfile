@@ -6,7 +6,7 @@ ENV POSTGRES_PASSWORD booking_pwd
 ENV POSTGRES_DB booking_db
 
 # Copy the SQL script to initialize the database
-COPY init.sql /docker-entrypoint-initdb.d/init.sql
+#COPY init.sql /docker-entrypoint-initdb.d/init.sql
 
 # Expose PostgreSQL port
 EXPOSE 5432
